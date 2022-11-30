@@ -1,0 +1,44 @@
+---
+export interface Props {
+	title: string;
+	body: string;
+	imgUrl: string;
+}
+
+const { imgUrl, title, body } = Astro.props;
+---
+
+<div class="detailcard">
+	<img src={imgUrl} alt={title}>
+	<div class="more">
+		<h4>{title}</h4>
+		<p>{body}</p>
+	</div>
+</div>
+
+<style>
+	.detailcard {
+		/* border: 2px solid red; */
+		display: flex;
+		padding: 12px 0;
+	}
+	img {
+		width: 48px;
+		height: 48px;
+		margin: 0 12px 0 0;
+	}
+	.more {
+		/* border: 2px solid black; */
+		width: 80%;
+	}
+	.more > h4 {
+		color: #EF629F;
+		margin-bottom: 6px;
+		font-size: 24px;
+	}
+	@media screen and (min-width: 599px) {
+		img {
+		margin: 0 18px 0 0;
+	}
+    }
+</style>

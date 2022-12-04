@@ -1,13 +1,41 @@
+---
+
+---
 <section class="main-section ">
     <form>
-        <label>
-            <input type="text" name="" id="">
-        </label>
-        <label>
-            <input type="email" name="" id="">
-        </label>
+        <label for="name">Name</label>
+        <input type="text" name="" id="name" placeholder="Fullname" required>
+        <label for="email">Email Address</label>
+        <input type="email" name="" id="email" placeholder="email address" required>
+
+        <div class="group radio">
+            <p>Have you used an escrow service before:</p>
+            <input type="radio" id="yes" name="have used escrow" value="yes" required>
+            <label for="yes">Yes, I have</label> <br/>
+            <input type="radio" id="no" name="have used escrow" value="no">
+            <label for="no">No, I haven't</label> <br/>
+        </div>
+
+        <div class="group radio">
+            <p>Have you used an escrow service before:</p>
+            <input type="radio" id="local" name="have used escrow" value="local">
+            <label for="local">Local Currency Only</label>  <br/>
+            <input type="radio" id="Intl" name="have used escrow" value="Intl">
+            <label for="Intl">International Currencies Only</label>  <br/>
+            <input type="radio" id="both" name="have used escrow" value="both">
+            <label for="both">Both local & International Currencies</label>  <br/>
+        </div>
+
+        <div class="group">
+            <input type="checkbox" id="agree" name="agree" value="agree" required>
+            <label for="agree"> I agree that you can send product updates and other necessary information</label>
+        </div>
+
+        <input type="submit" value="Submit">
+
     </form>
 </section>
+
 
 
 <style>
@@ -16,14 +44,58 @@
         width: 100vw;
         max-width: 100vw;
         min-height: max-content;
-        padding: 0 20px 40px;
+        padding: 80px 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
 	}
     form {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* border: 2px solid red; */
+    }
+
+    form > label {
+        color: black;
+        margin-bottom: 18px;
+        font-weight: 700;
+    }
+    input[type=text], input[type=email], input[type=submit]{
         height: 60px;
+        width: 100%;
+        margin-bottom: 40px;
+        border-radius: 40px;
+        border: none;
+        padding: 0 16px;
+        font-size: 16px;
+    }
+    input[type=submit] {
+        background-color: #EECDA3;
+        cursor: pointer;
+    }
+    input[type=radio] {
+        cursor: pointer;
+        height: 20px;
+        width:  20px;
+        margin-bottom: 12px;
+    }
+
+    .radio > label {
+        /* color: red; */
+        cursor: pointer;
+        position: relative;
+        top: -4px;
+        margin-left: 6px;
+    }
+    .group {
+        margin-bottom: 40px;
+    }
+
+    .group > p {
+        color: black;
+        margin-bottom: 18px;
+        font-weight: 700;
     }
     @media screen and (min-width: 599px) {
         .main-section {

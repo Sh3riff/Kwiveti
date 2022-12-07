@@ -29,13 +29,15 @@
             <label for="agree"> I agree that you can send product updates and other necessary information</label>
         </div>
 
-        <!-- <input type="submit" value="Submit"> -->
         <button type="submit"  id="submit-button">
             <p id="submit-text">Submit</p>
             <div class="lds-ripple" id="submit-loader"><div></div><div></div></div>
         </button>
 
     </form>
+    <div id="form-submitted">
+        <h3>Thank's for your contribution we would keep in touch</h3>
+    </div>
 </section>
 
 <script>
@@ -67,6 +69,11 @@
         })
 
         console.log('success')
+        const form: any = document.getElementById('form')
+        const formSubmitted: any = document.getElementById('form-submitted')
+        
+        form.style.display = "none"
+        formSubmitted.style.display = "block"
       } catch (error) {
         console.log(error)
       } finally {
@@ -137,6 +144,10 @@
         color: black;
         margin-bottom: 18px;
         font-weight: 700;
+    }
+
+    #form-submitted {
+        display: none;
     }
     @media screen and (min-width: 599px) {
         .form-section {

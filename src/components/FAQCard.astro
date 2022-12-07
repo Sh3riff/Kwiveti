@@ -17,6 +17,7 @@ const {question, answer } = Astro.props;
         border-bottom: 2px solid #EF629F;
         margin-bottom: 48px;
         padding: 0 0 36px;
+        width: 100%;
     }
     h4 {
         color: #EF629F;
@@ -29,18 +30,17 @@ const {question, answer } = Astro.props;
         width: 90%;
         display: none;
     }
-
-h4:after {
-    content: '\02795';
-    /* Unicode character for "plus" sign (+) */
-    font-size: 13px;
-    color: #777;
-    float: right;
-    margin-left: 5px;
-}
+    h4:after {
+        content: '\02795';
+        font-size: 13px;
+        color: #ff0000;
+        float: right;
+        margin-left: 5px;
+    }
 
 .active:after {
     content: "\2796";
+    color: #ff0000;
     /* Unicode character for "minus" sign (-) */
 }
 @media screen and (min-width: 599px) {

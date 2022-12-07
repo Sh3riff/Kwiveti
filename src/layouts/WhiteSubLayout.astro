@@ -1,0 +1,45 @@
+---
+export interface Props {
+	title: string;
+  sectionId: string;
+}
+
+const {title, sectionId} = Astro.props;
+---
+<section class="subLayout" id={sectionId}>
+    <h1>{title}</h1>
+    <div class="content">
+      <slot />
+    </div>
+</section>
+<style>
+	.subLayout {
+        background-color: #ECF2F6;
+        width: 100vw;
+        max-width: 100vw;
+        min-height: max-content;
+        padding: 60px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+	}
+  h1 {
+      color: #EF629F;
+      margin-bottom: 36px;
+  }
+    @media screen and (min-width: 599px) {
+        .subLayout {
+          justify-content: center;
+          padding: 80px 20px;
+        }
+        .content {
+            /* border: 2px solid red; */
+            width: 80%;
+            max-width: 1000px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 36px;
+        }
+    }
+</style>

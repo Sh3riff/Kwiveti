@@ -1,4 +1,4 @@
-<section class="main-section" id="waitlist">
+<section class="form-section" id="waitlist">
     <h1>Join The Waitlist</h1>
     <form id="form">
         <label for="name">Name</label>
@@ -39,7 +39,7 @@
 
     form?.addEventListener('submit', async (event) => {
       event.preventDefault()
-      const formInputs = event.target;
+      const formInputs: any = event.target;
       const body = {
         name: formInputs?.name?.value,
         email: formInputs?.email?.value,
@@ -63,7 +63,7 @@
 </script>
 
 <style>
-	.main-section {
+	.form-section {
 		background-image: linear-gradient(#EECDA3, #EF629F);
         width: 100vw;
         max-width: 100vw;
@@ -125,7 +125,7 @@
         font-weight: 700;
     }
     @media screen and (min-width: 599px) {
-        .main-section {
+        .form-section {
           justify-content: center;
         }
         form {

@@ -1,0 +1,51 @@
+---
+export interface Props {
+	question: string;
+	answer: string;
+}
+
+const {question, answer } = Astro.props;
+---
+<div class="faq-card">
+    <h4>{question}</h4>
+    <p>{answer}</p>
+
+</div>
+
+<style>
+    .faq-card{
+        border-bottom: 2px solid #EF629F;
+        margin-bottom: 48px;
+        padding: 0 0 36px;
+    }
+    h4 {
+        color: #EF629F;
+        cursor: pointer;
+        width: 100%;
+        transition: 0.4s;
+    }
+    p{
+        margin-top: 16px;
+        width: 90%;
+        display: none;
+    }
+
+h4:after {
+    content: '\02795';
+    /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2796";
+    /* Unicode character for "minus" sign (-) */
+}
+@media screen and (min-width: 599px) {
+    .faq-card{
+        padding-left: 0 20px 36px;
+    }
+}
+</style>

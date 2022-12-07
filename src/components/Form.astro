@@ -1,29 +1,26 @@
----
-
----
 <section class="main-section" id="waitlist">
     <h1>Join The Waitlist</h1>
-    <form>
+    <form id="form">
         <label for="name">Name</label>
-        <input type="text" name="" id="name" placeholder="Fullname" required>
+        <input type="text" name="" id="name" placeholder="Fullname" autocomplete="on" required>
         <label for="email">Email Address</label>
-        <input type="email" name="" id="email" placeholder="email address" required>
+        <input type="email" name="" id="email" placeholder="email address" autocomplete="on" required>
 
         <div class="group radio">
             <p>Have you used an escrow service before:</p>
-            <input type="radio" id="yes" name="have used escrow" value="yes" required>
+            <input type="radio" id="yes" name="haveUsedEscrow" value="yes" required>
             <label for="yes">Yes, I have</label> <br/>
-            <input type="radio" id="no" name="have used escrow" value="no">
+            <input type="radio" id="no" name="haveUsedEscrow" value="no">
             <label for="no">No, I haven't</label> <br/>
         </div>
 
         <div class="group radio">
             <p>Have you used an escrow service before:</p>
-            <input type="radio" id="local" name="have used escrow" value="local">
+            <input type="radio" id="local" name="targetCurrency" value="local"  required>
             <label for="local">Local Currency Only</label>  <br/>
-            <input type="radio" id="Intl" name="have used escrow" value="Intl">
+            <input type="radio" id="Intl" name="targetCurrency" value="Intl">
             <label for="Intl">International Currencies Only</label>  <br/>
-            <input type="radio" id="both" name="have used escrow" value="both">
+            <input type="radio" id="both" name="targetCurrency" value="both">
             <label for="both">Both local & International Currencies</label>  <br/>
         </div>
 
@@ -37,7 +34,33 @@
     </form>
 </section>
 
+<script>
+    const form = document.getElementById('form')
 
+    form?.addEventListener('submit', async (event) => {
+      event.preventDefault()
+      const formInputs = event.target;
+      const body = {
+        name: formInputs?.name?.value,
+        email: formInputs?.email?.value,
+        haveUsedEscrow: formInputs?.haveUsedEscrow?.value,
+        targetCurrency: formInputs?.targetCurrency?.value,
+      }
+
+      try {
+        const res = await fetch('https://wxo7u56rk3tygy3nr3iej2rmhy0myuun.lambda-url.us-east-1.on.aws/submit', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(body),
+        })
+
+        console.log('success')
+      } catch (error) {
+        console.log(error)
+      }
+    })
+</script>
 
 <style>
 	.main-section {

@@ -30,7 +30,7 @@
         </div>
 
         <!-- <input type="submit" value="Submit"> -->
-        <button type="submit">
+        <button type="submit"  id="submit-button">
             <p id="submit-text">Submit</p>
             <div class="lds-ripple" id="submit-loader"><div></div><div></div></div>
         </button>
@@ -45,6 +45,7 @@
       event.preventDefault()
       const formInputs: any = event.target;
 
+      const submitButton: any = document.getElementById('submit-button')
       const submitText: any = document.getElementById('submit-text')
       const submitLoader: any = document.getElementById('submit-loader')
       const body = {
@@ -55,6 +56,7 @@
       }
 
       try {
+        submitButton.disabled = true
         submitText.style.display = "none"
         submitLoader.style.display = "inline-block"
         const res = await fetch('https://wxo7u56rk3tygy3nr3iej2rmhy0myuun.lambda-url.us-east-1.on.aws/submit', {

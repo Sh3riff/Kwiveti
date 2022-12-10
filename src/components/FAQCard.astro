@@ -2,13 +2,17 @@
 export interface Props {
 	question: string;
 	answer: string;
+	cite?: string;
 }
 
-const {question, answer } = Astro.props;
+const {question, answer, cite } = Astro.props;
 ---
 <div class="faq-card">
     <h4>{question}</h4>
-    <p>{answer}</p>
+    <p>
+        {answer}
+        <cite>{cite}</cite>
+    </p>
 
 </div>
 
@@ -28,7 +32,13 @@ const {question, answer } = Astro.props;
     p{
         margin-top: 16px;
         width: 90%;
+        font-size: 16px;
+        line-height: 19px;
         display: none;
+    }
+    cite{
+        font-size: 10px;
+        color: blue;
     }
     h4:after {
         content: '\02795';

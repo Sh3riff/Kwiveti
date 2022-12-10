@@ -7,7 +7,7 @@
         <input type="email" name="" id="email" placeholder="email address" autocomplete="on" required>
 
         <div class="group radio">
-            <p>Have you used an escrow service before:</p>
+            <p>Have you used any escrow service like kwiveti before:</p>
             <input type="radio" id="yes" name="haveUsedEscrow" value="yes" required>
             <label for="yes">Yes, I have</label> <br/>
             <input type="radio" id="no" name="haveUsedEscrow" value="no">
@@ -15,13 +15,15 @@
         </div>
 
         <div class="group radio">
-            <p>Have you used an escrow service before:</p>
+            <p>How would you likely use kwiveti:</p>
             <input type="radio" id="local" name="targetCurrency" value="local"  required>
-            <label for="local">Local Currency Only</label>  <br/>
+            <label for="local">Local transactions Only</label>  <br/>
             <input type="radio" id="Intl" name="targetCurrency" value="Intl">
-            <label for="Intl">International Currencies Only</label>  <br/>
+            <label for="Intl">International transactions Only</label>  <br/>
             <input type="radio" id="both" name="targetCurrency" value="both">
-            <label for="both">Both local & International Currencies</label>  <br/>
+            <label for="both">Both local & International transactions</label>  <br/>
+            <input type="radio" id="none" name="targetCurrency" value="none">
+            <label for="none">I would not be using any escrow service</label>  <br/>
         </div>
 
         <div class="group">
